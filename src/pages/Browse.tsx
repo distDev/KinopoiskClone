@@ -1,4 +1,6 @@
-import React from 'react'
+
+import { BrowseContent } from '../components/BrowseContent'
+import { BrowsePoster } from '../components/BrowsePoster'
 
 interface Props {
     
@@ -6,8 +8,9 @@ interface Props {
 
 export const Browse = (props: Props) => {
     return (
-        <div>
-            
+        <div className='browse'>
+            <BrowsePoster />
+            <BrowseContent />
         </div>
     )
 }

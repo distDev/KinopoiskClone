@@ -1,0 +1,60 @@
+.browse__poster {
+  width: 100%;
+  height: 90vh;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+
+  .browse__poster_img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    object-fit: cover;
+  }
+
+  .browse__logo {
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 463px;
+    height: 159px;
+  }
+
+  .browse__btns {
+    display: flex;
+    gap: 0px 10px;
+    margin: 40px 60px;
+    z-index: 5;
+
+    button {
+      padding: 15px 20px;
+      border: none;
+      display: flex;
+      gap: 0px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 15px;
+      color: #ffffff;
+      background: #222222;
+
+      svg {
+      
+      }
+
+    }
+    
+    .browse__btns_play {
+        background: #FF6600;
+    }
+    
+
+
+  }
+}

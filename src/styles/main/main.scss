@@ -13,14 +13,13 @@
     flex-direction: column;
 
     .main__plus_logo {
-        width: 185px;
-        height: 36px;
-        margin: 0px auto;
-        img {
-            width: 100%;
-            height: auto;
-            
-        }
+      width: 185px;
+      height: 36px;
+      margin: 0px auto;
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
     .main__button {
       display: flex;
@@ -34,11 +33,10 @@
       margin-bottom: 25px;
       color: #ffffff;
       text-align: center;
-    
-      span {
-          color: #848EFF;
-      }
 
+      span {
+        color: #848eff;
+      }
     }
     p {
       font-weight: 500;
@@ -46,7 +44,6 @@
       margin: 0px;
       text-align: center;
       color: #bdbdbd;
-
     }
     button {
       border: none;
@@ -69,8 +66,66 @@
       border-radius: 6px;
 
       &:hover {
-          transform: scale(1.04);
-          cursor: pointer;
+        transform: scale(1.04);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .main__login_box {
+    width: 360px;
+    padding: 50px 20px 20px 20px;
+    border-radius: 15px;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 10px;
+      background: rgb(255, 255, 255);
+      border: none;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: normal;
+      border: 1px solid rgb(189, 189, 189);
+      transition: 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        background: rgb(241, 241, 241);
+      }
+
+      svg {
+        color: rgb(226, 139, 117);
+        margin-right: 15px;
+      }
+    }
+
+    a {
+      display: block;
+      position: absolute;
+      left: -21px;
+      top: 25px;
+      padding: 9px 18px;
+      border-radius: 50%;
+      background: rgb(255, 255, 255);
+      -webkit-box-shadow: 0px 0px 23px 1px rgba(34, 60, 80, 0.13);
+      -moz-box-shadow: 0px 0px 23px 1px rgba(34, 60, 80, 0.13);
+      box-shadow: 0px 0px 23px 1px rgba(34, 60, 80, 0.13);
+      transition: 0.2s;
+
+      &:hover {
+       background: rgb(241, 241, 241);
+        cursor: pointer;
+      }
+
+      svg {
+        margin-left: -3px;
+        color: #000;
       }
     }
   }

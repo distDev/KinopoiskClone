@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import './styles/header/header.scss';
 @import './styles/main/main.scss';
+@import './styles/browse/browse.scss';
+@import './styles/row-films/row-films.scss';
 
 * {
     box-sizing: border-box;
@@ -13,4 +15,11 @@ body {
     margin: 0px auto;
     padding: 0px;
     font-family: 'Montserrat', sans-serif;
+}
+.swipe-container {
+    margin-left: 60px;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px 0px;
 }

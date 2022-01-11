@@ -1,3 +1,5 @@
-export interface IUser {
-    
+export interface IRowFilms {
+    title: string,
+    start: number,
+    end: number
 }

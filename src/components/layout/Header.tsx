@@ -1,5 +1,5 @@
 
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { headerLinks } from '../../utils/headerLinks';
 
 interface Props {}
@@ -23,7 +23,8 @@ export const Header = () => {
           ))}
         </div>
         <div className='header__profile'>
-          <img src='./images/profile.png' alt='' />
+          <Link to='/login'>Войти</Link>
+          {/* <img src='./images/profile.png' alt='' /> */}
         </div>
       </header>
     </>

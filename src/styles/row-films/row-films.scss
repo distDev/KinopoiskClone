@@ -1,0 +1,15 @@
+.row-films {
+  width: 100%;
+ 
+  h2 {
+    font-weight: bold;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 20px;
+  }
+  .row-films__slide {
+    background: rgb(199, 193, 137);
+    border-radius: 10px;
+    height: 179px;
+  }
+}
