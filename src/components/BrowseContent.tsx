@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { slideData } from '../data';
+
 import { RowFilms } from './RowFilms';
 
-interface Props {
-    
-}
 
-export const BrowseContent = (props: Props) => {
+
+export const BrowseContent = () => {
+
+    const [films, setFilms] = useState(slideData)
+
     return (
       <div className='swipe-container '>
-        <RowFilms title={'Рекомендуемое'} start={1} end={7} />
-        <RowFilms title={'Драма'} start={1} end={7} />
-        <RowFilms title={'Боевики'} start={1} end={7} />
-        <RowFilms title={'Новинки'} start={1} end={7} />
+        <RowFilms title={'Рекомендуемое'} films={films} start={1} end={7} />
+        <RowFilms title={'Драма'} films={films} start={1} end={7} />
+        <RowFilms title={'Боевики'} films={films} start={1} end={7} />
+        <RowFilms title={'Новинки'} films={films} start={1} end={7} />
       </div>
     );
 }

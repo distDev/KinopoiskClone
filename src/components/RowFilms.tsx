@@ -1,24 +1,33 @@
-import React, { FC } from 'react'
-import { IRowFilms } from '../interfaces';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+import { FC, useState } from 'react';
+import { IFilms, ISliceOptions } from '../interfaces';
+import { SliderFilms } from './SliderFilms';
+import { DownFilmDescription } from './DownFilmDescription';
 
+export const RowFilms = ({
+  title,
+  start,
+  end,
+  films,
+}: IFilms & ISliceOptions) => {
+  const [film, setFilm] = useState<any>([]);
+  const [visible, setVisible] = useState(false);
 
-export const RowFilms:FC<IRowFilms> = ({title, start, end}) => {
+  const handleClick = (id: string) => {
+    let filmData = films.filter((e) => e.id === id);
+    setFilm(filmData);
+    setVisible((visible) => !visible);
+  };
+
   return (
     <div className='row-films'>
-      <h2 className='row-films__title'>{title}</h2>
-      <Swiper
-        spaceBetween={15}
-        slidesPerView={3.5}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
-      >
-        <SwiperSlide className='row-films__slide'></SwiperSlide>
-        <SwiperSlide className='row-films__slide'></SwiperSlide>
-        <SwiperSlide className='row-films__slide'></SwiperSlide>
-        <SwiperSlide className='row-films__slide'></SwiperSlide>
-      </Swiper>
+      <SliderFilms
+        start={start}
+        end={end}
+        films={films}
+        title={title}
+        handleClick={handleClick}
+      />
+      {visible ? <DownFilmDescription film={film} /> : null}
     </div>
   );
 };
