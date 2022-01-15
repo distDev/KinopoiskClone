@@ -2,7 +2,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { headerLinks } from '../../utils/headerLinks';
 
-interface Props {}
 
 export const Header = () => {
   return (

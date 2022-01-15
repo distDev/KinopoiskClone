@@ -3,23 +3,46 @@
 @import './styles/main/main.scss';
 @import './styles/browse/browse.scss';
 @import './styles/row-films/row-films.scss';
+@import './styles/button/button.scss';
+@import './styles/card-film/card-film.scss';
 
 * {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
 
 body {
-    background: #141414;
-    margin: 0px auto;
-    padding: 0px;
-    font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
+  background: #141414;
+  margin: 0px auto;
+  padding: 0px;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
 }
 .swipe-container {
-    margin-top: 70px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px 0px;
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px 0px;
+}
+.container {
+  padding: 120px 0px;
+  width: 100%;
+
+  h1 {
+      margin-left: 60px;
+      color: white;
+  }
+}
+.content-container {
+  margin-top: 40px;
+}
+
+.row-content-rows {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 15px;
+  padding: 0px 60px;
+  margin-top: 40px;
+margin-bottom: 10px;
 }

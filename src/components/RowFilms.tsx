@@ -1,33 +1,21 @@
-import { FC, useState } from 'react';
-import { IFilms, ISliceOptions } from '../interfaces';
-import { SliderFilms } from './SliderFilms';
-import { DownFilmDescription } from './DownFilmDescription';
+import { FC } from 'react';
+import { IFilm, ISliceOptions } from '../interfaces';
+import CardFilm from './CardFilm';
 
-export const RowFilms = ({
-  title,
-  start,
-  end,
+interface ISliceRow {
+  handleClick?: any;
+  films: IFilm[];
+}
+
+export const RowFilms: FC<ISliceRow & ISliceOptions> = ({
   films,
-}: IFilms & ISliceOptions) => {
-  const [film, setFilm] = useState<any>([]);
-  const [visible, setVisible] = useState(false);
-
-  const handleClick = (id: string) => {
-    let filmData = films.filter((e) => e.id === id);
-    setFilm(filmData);
-    setVisible((visible) => !visible);
-  };
-
+  handleClick,
+}) => {
   return (
-    <div className='row-films'>
-      <SliderFilms
-        start={start}
-        end={end}
-        films={films}
-        title={title}
-        handleClick={handleClick}
-      />
-      {visible ? <DownFilmDescription film={film} /> : null}
+    <div className='row-content-rows'>
+      {films.map((e) => (
+        <CardFilm id={e.id} rating={e.rating} img={e.img} handleClick={handleClick}/>
+      ))}
     </div>
   );
 };

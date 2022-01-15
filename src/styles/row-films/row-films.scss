@@ -1,3 +1,7 @@
+@import './__large/row-films__large.scss';
+@import './__slide/row-films__slide.scss';
+@import './__title/row-films__title.scss';
+
 .row-films {
   width: 100%;
 
@@ -6,71 +10,7 @@
     width: 100%;
     margin-bottom: 10px;
   }
-  .row-films__large {
-    width: 100%;
-    height: 617px;
-    background: #000;
-    color: white;
-    position: relative;
-    transition: all .5s ease-in-out;
-    
-    img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 1;
-      top: 0;
-      left: 0;
-    }
-    .row-films__large_content {
-      z-index: 22;
-      position: relative;
-    }
-  }
-  .row-films__title {
-    font-weight: bold;
-    display: inline-block;
-    font-size: 22px;
-    color: white;
-    margin-bottom: 20px;
-    text-decoration: none;
-    
-    
-  }
-  .row-films__slide {
-    border-radius: 10px;
-    height: 179px;
-    position: relative;
-    overflow: hidden;
-
-    img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 2;
-      object-fit: cover;
-    }
-
-    p {
-      display: inline-block;
-      font-size: 13px;
-      font-weight: bold;
-      color: white;
-      padding: 2px 10px;
-      border-radius: 4px;
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      z-index: 5;
-    }
-    .hight-rating {
-      background: #3bb33b;
-    }
-    .low-rating {
-      background: #666;
-    }
-  }
+  
+  
+  
 }

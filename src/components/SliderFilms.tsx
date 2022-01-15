@@ -1,23 +1,20 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { FC } from 'react';
-import { IFilms, ISliceOptions } from '../interfaces';
+import { IFilm, ISliceOptions } from '../interfaces';
 import { Link } from 'react-router-dom';
 
 interface ISliceRow {
   handleClick: any;
-  
+  films: IFilm[];
 }
 
-export const SliderFilms: FC<IFilms & ISliceRow & ISliceOptions> = ({
-  start,
-  end,
+export const SliderFilms: FC<ISliceRow & ISliceOptions> = ({
   films,
   title,
   handleClick,
 }) => {
-
-  const {id}:any = films
+  const { id }: any = films;
 
   return (
     <div className='row-films-rows'>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { slideData } from '../data';
 
-import { RowFilms } from './RowFilms';
+import { Movies } from './Movies';
 
 
 
@@ -11,10 +11,10 @@ export const BrowseContent = () => {
 
     return (
       <div className='swipe-container '>
-        <RowFilms title={'Рекомендуемое'} films={films} start={1} end={7} />
-        <RowFilms title={'Драма'} films={films} start={1} end={7} />
-        <RowFilms title={'Боевики'} films={films} start={1} end={7} />
-        <RowFilms title={'Новинки'} films={films} start={1} end={7} />
+        <Movies title={'Рекомендуемое'} films={films} variant='slider' />
+        <Movies title={'Драма'} films={films} variant='slider' />
+        <Movies title={'Боевики'} films={films} variant='slider' />
+        <Movies title={'Новинки'} films={films} variant='slider' />
       </div>
     );
 }
