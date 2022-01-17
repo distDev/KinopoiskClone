@@ -7,14 +7,18 @@ interface ISliceRow {
   films: IFilm[];
 }
 
-export const RowFilms: FC<ISliceRow & ISliceOptions> = ({
-  films,
-  handleClick,
-}) => {
+export const CardsRow: FC<ISliceRow & ISliceOptions> = ({ films, handleClick }) => {
+
   return (
     <div className='row-content-rows'>
       {films.map((e) => (
-        <CardFilm id={e.id} rating={e.rating} img={e.img} handleClick={handleClick}/>
+        <CardFilm
+          id={e.id}
+          backdrop_path={e.backdrop_path}
+          title={e.title}
+          vote_average={e.vote_average}
+          handleClick={handleClick}
+        />
       ))}
     </div>
   );

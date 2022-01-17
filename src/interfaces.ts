@@ -1,11 +1,13 @@
 
 export interface IFilm {
-   img: string;
-    rating: number;
-    id: string;
-    name?: string;
-    description?: string;
-  
+  backdrop_path?: string;
+  id: number;
+  title?: string;
+  overview?: string;
+  poster_path?: string;
+  release_date?: string;
+  vote_average: number;
+  vote_count?: number;
 }
 
 export interface ISliceOptions {

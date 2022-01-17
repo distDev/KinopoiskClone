@@ -1,17 +1,34 @@
-
 import { IFilm } from '../interfaces';
 
 interface ICardFilm {
   handleClick: any;
 }
 
-const CardFilm = ({ id, rating, handleClick, img }: IFilm & ICardFilm) => {
+const CardFilm = ({
+  id,
+  backdrop_path,
+  vote_average,
+  handleClick,
+}: IFilm & ICardFilm) => {
+
   return (
-    <div key={id} className='card-film' onClick={() => handleClick(id)}>
-      <p className={rating <= 7 ? 'low-rating' : 'hight-rating'}>{rating}</p>
-      <img src={img} alt='' />
-    </div>
+    <>
+      <div
+        key={id.toString()}
+        className='card-film'
+        onClick={() => handleClick(id)}
+      >
+        <p className={vote_average <= 7 ? 'low-rating' : 'hight-rating'}>
+          {vote_average}
+        </p>
+        <img
+          src={'https://image.tmdb.org/t/p/original' + backdrop_path}
+          alt=''
+         
+        />
+      </div>
+    </>
   );
 };
 
-export default CardFilm
+export default CardFilm;

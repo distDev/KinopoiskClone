@@ -1,34 +1,64 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IFilm, ISliceOptions } from '../interfaces';
-import { SliderFilms } from './SliderFilms';
-import { DownFilmDescription } from './DownFilmDescription';
-import { RowFilms } from './RowFilms';
-
+import { DownCardDescription } from './DownCardDescription';
+import { CardsRow } from './CardsRow';
+import { CardsSlider } from './CardsSlider';
+import axios from 'axios';
 
 interface IMovies {
-  films: IFilm[];
+  fetchMovie?: string;
+  genres?: number;
+  rowMovies?: IFilm[];
 }
 
-export const Movies = ({ title, films, variant }: IMovies & ISliceOptions) => {
+export const Movies = ({
+  title,
+  variant,
+  fetchMovie,
+  genres,
+  rowMovies,
+}: IMovies & ISliceOptions) => {
   const [film, setFilm] = useState<any>([]);
+  const [movies, setMovies] = useState<any>([]);
   const [visible, setVisible] = useState(false);
-  const { id }: any = films;
 
-  const handleClick = (id: string) => {
-    let filmData = films.filter((e) => e.id === id);
-    setFilm(filmData);
+  useEffect(() => {
+    if (fetchMovie) {
+      const fetchData = async () => {
+        const res = await axios.get(
+          `${process.env.REACT_APP_API}${fetchMovie}`
+        );
+        setMovies(res.data.results);
+      };
+      fetchData();
+    }
+  }, [fetchMovie, film]);
+
+  const handleClick = (id: any) => {
+    if (fetchMovie) {
+      let filmData = movies.filter((e: any) => e.id === id);
+      setFilm(filmData);
+    } else {
+      let filmData = rowMovies!.filter((e: any) => e.id === id);
+      setFilm(filmData);
+    }
     setVisible((visible) => !visible);
   };
 
   return (
     <div className='row-films'>
       {variant === 'slider' ? (
-        <SliderFilms films={films} title={title} handleClick={handleClick} />
+        <CardsSlider
+          genres={genres}
+          handleClick={handleClick}
+          films={movies}
+          title={title}
+        />
       ) : (
-        <RowFilms films={films} handleClick={handleClick} />
+        <CardsRow films={rowMovies!} handleClick={handleClick} />
       )}
 
-      {visible ? <DownFilmDescription film={film} /> : null}
+      {visible ? <DownCardDescription film={film} /> : null}
     </div>
   );
 };
