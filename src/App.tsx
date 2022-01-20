@@ -2,7 +2,7 @@
 import { BrowserRouter as Router} from 'react-router-dom';
 import { AppRouter } from './components/AppRouter';
 import { Layout } from './components/layout/Layout';
-import './index.scss';
+import './styles/index.scss';
 
 
 function App() {

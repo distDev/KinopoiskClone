@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-@import './styles/header/header.scss';
-@import './styles/main/main.scss';
-@import './styles/browse/browse.scss';
-@import './styles/row-films/row-films.scss';
-@import './styles/button/button.scss';
-@import './styles/card-film/card-film.scss';
+@import './header/header.scss';
+@import './main/main.scss';
+@import './browse/browse.scss';
+@import './row-films/row-films.scss';
+@import './button/button.scss';
+@import './card-film/card-film.scss';
 
 * {
   box-sizing: border-box;

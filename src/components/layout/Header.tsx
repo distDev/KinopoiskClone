@@ -1,9 +1,13 @@
-
+import { observer } from 'mobx-react-lite';
 import { Link, NavLink } from 'react-router-dom';
+import { myAuthUser } from '../../store/userStore';
 import { headerLinks } from '../../utils/headerLinks';
 
+export const Header = observer(() => {
 
-export const Header = () => {
+  const authUser = myAuthUser.user
+
+  console.log(authUser);
   return (
     <>
       <header className='header'>
@@ -22,10 +26,13 @@ export const Header = () => {
           ))}
         </div>
         <div className='header__profile'>
-          <Link to='/login'>Войти</Link>
-          {/* <img src='./images/profile.png' alt='' /> */}
+          {authUser.login ? (
+            <img src={authUser.photoURL!} alt='user-avatar' />
+          ) : (
+            <Link to='/login'>Войти</Link>
+          )}
         </div>
       </header>
     </>
   );
-};
+});

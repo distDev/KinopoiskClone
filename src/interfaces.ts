@@ -10,6 +10,13 @@ export interface IFilm {
   vote_count?: number;
 }
 
+export interface IUser {
+  email: string | null;
+  photoURL: string | null;
+  uid?: string | null;
+  login: boolean;
+}
+
 export interface ISliceOptions {
  title?: string,
  variant?: 'slider' | 'row'
