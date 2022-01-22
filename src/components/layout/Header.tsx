@@ -1,13 +1,12 @@
 import { observer } from 'mobx-react-lite';
+import { useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { myAuthUser } from '../../store/userStore';
 import { headerLinks } from '../../utils/headerLinks';
 
 export const Header = observer(() => {
+  const authUser = myAuthUser.user;
 
-  const authUser = myAuthUser.user
-
-  console.log(authUser);
   return (
     <>
       <header className='header'>

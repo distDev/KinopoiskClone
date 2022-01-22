@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { IFilm, ISliceOptions } from '../interfaces';
-import { DownCardDescription } from './DownCardDescription';
+import { DownCardDescription } from './DownDesription/DownCardDescription';
 import { CardsRow } from './CardsRow';
 import { CardsSlider } from './CardsSlider';
 import axios from 'axios';

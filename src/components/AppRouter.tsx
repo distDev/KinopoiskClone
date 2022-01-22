@@ -8,7 +8,7 @@ import { LOGIN_ROUTE, MAIN_ROUTE } from '../utils/routesConst';
 
 
 export const AppRouter = observer(() => {
-  const  user  = myAuthUser.user.login;
+  const  user  = true;
 
   return (
     <>

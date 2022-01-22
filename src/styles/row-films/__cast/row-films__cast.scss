@@ -1,0 +1,17 @@
+.row-films__cast {
+  display: flex;
+  gap: 0px 50px;
+  margin-top: 80px;
+  transition: 0.3s;
+
+  .row-films__cast_actors {
+    li {
+      list-style: none;
+      font-size: 13px;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    transition: 0.3s;
+  }
+}

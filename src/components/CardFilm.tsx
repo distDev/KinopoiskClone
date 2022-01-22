@@ -14,7 +14,7 @@ const CardFilm = ({
   return (
     <>
       <div
-        key={id.toString()}
+        key={id!.toString()}
         className='card-film'
         onClick={() => handleClick(id)}
       >

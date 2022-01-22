@@ -1,0 +1,31 @@
+.row-films__detail_container {
+  display: flex;
+  gap: 0px 200px;
+  transition: 0.3s;
+ 
+  .row-films__about {
+    max-width: 50%;
+    margin-top: 60px;
+    transition: 0.3s;
+    h2 {
+      margin-bottom: 25px;
+      font-size: 28px;
+      transition: 0.3s;
+    }
+
+    span {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .row-films__vote_count {
+      margin-bottom: 15px;
+      font-size: 13px;
+    }
+
+    .row-films__overview {
+      font-size: 22px;
+      line-height: 35px;
+    }
+  }
+}

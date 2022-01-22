@@ -33,6 +33,7 @@ export const Login: FC<Props> = observer((props: Props) => {
         });
 
         history.push('/browse')
+      
         // ...
       })
       .catch((error) => {

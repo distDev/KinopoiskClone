@@ -1,15 +1,16 @@
- .header__menu {
-    display: flex;
-    gap: 0px 30px;
+.header__menu {
+  display: flex;
+  gap: 0px 30px;
 
-    a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 17px;
-      padding: 10px 0px;
-    }
-    .header__menu_selected {
-      border-bottom: 2px solid #ff6600;
-    }
+  a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px 0px;
   }
+  .header__menu_selected {
+    border-bottom: 2px solid #ff6600;
+    color: rgb(255, 255, 255);
+  }
+}
