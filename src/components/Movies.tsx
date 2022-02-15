@@ -34,15 +34,25 @@ export const Movies = ({
     }
   }, [fetchMovie, film]);
 
-  const handleClick = (id: any) => {
+
+  // Поиск фильма для вывода в открывающемся блоке
+  const handleOpenDescription = (id: any) => {
+    
+    // Если есть fetchMovie, то происходит поиск нужного фильма, чтобы отобразить данные 
+    // в появляющимся блоке с описанием
     if (fetchMovie) {
       let filmData = movies.filter((e: any) => e.id === id);
       setFilm(filmData);
-    } else {
+    }
+   
+    // Если нет fetchMovie, то поиск идет среди фильмов, которые были переданы в rowMovies
+    else {
       let filmData = rowMovies!.filter((e: any) => e.id === id);
       setFilm(filmData);
     }
-    setVisible((visible) => !visible);
+
+    // открывает блок после клика и запроса данных
+    setVisible((visible) => (visible = true));
   };
 
   return (
@@ -50,12 +60,12 @@ export const Movies = ({
       {variant === 'slider' ? (
         <CardsSlider
           genres={genres}
-          handleClick={handleClick}
+          handleClick={handleOpenDescription}
           films={movies}
           title={title}
         />
       ) : (
-        <CardsRow films={rowMovies!} handleClick={handleClick} />
+        <CardsRow films={rowMovies!} handleClick={handleOpenDescription} />
       )}
 
       {visible ? <DownCardDescription film={film} /> : null}

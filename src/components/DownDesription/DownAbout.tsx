@@ -1,17 +1,33 @@
 import { faBookmark, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FC } from 'react';
-import { IFilm } from '../../interfaces';
+import { FC, useState } from 'react';
+import { IBookmarks, IFilm } from '../../interfaces';
+import { myBookmarksUser } from '../../store/bookmarkStore';
 
 import { Button } from '../UI/Button';
-
 
 export const DownAbout: FC<IFilm> = ({
   title,
   vote_average,
   release_date,
   overview,
+  id,
+  backdrop_path,
 }) => {
+
+ 
+ 
+  const bookmarks: IBookmarks[] = myBookmarksUser.bookmarks;
+  
+  const handleSaveBookmark = () => {
+    myBookmarksUser.AddBookmark({
+      id: id!,
+      backdrop_path: backdrop_path!,
+      vote_average: vote_average,
+    });
+   
+  };
+
   return (
     <div className='row-films__large_content'>
       <div className='row-films__header_content'>
@@ -29,8 +45,10 @@ export const DownAbout: FC<IFilm> = ({
           <FontAwesomeIcon icon={faPlay} />
           Смотреть трейлер
         </Button>
-        <Button variant='normal'>
-          <FontAwesomeIcon icon={faBookmark} />
+        <Button variant='normal' onClick={handleSaveBookmark}>
+        
+            <FontAwesomeIcon icon={faBookmark}  />
+       
         </Button>
       </div>
     </div>

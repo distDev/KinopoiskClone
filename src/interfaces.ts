@@ -11,7 +11,6 @@ export interface IFilm {
 }
 
 export interface ICast {
- 
     cast: {
       name: string;
     }[];
@@ -32,4 +31,10 @@ export interface IUser {
 export interface ISliceOptions {
  title?: string,
  variant?: 'slider' | 'row'
+}
+
+export interface IBookmarks {
+  id: number;
+  backdrop_path: string;
+  vote_average: number;
 }

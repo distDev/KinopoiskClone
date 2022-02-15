@@ -12,11 +12,10 @@ export const Category = () => {
 
   const size = 4; //размер подмассива
   const subarray = []; //массив в который будет выведен результат.
- 
+
   for (let i = 0; i < Math.ceil(movies!.length / size); i++) {
     subarray[i] = movies!.slice(i * size, i * size + size);
   }
-
 
   useEffect(() => {
     const fetchData = async () => {
