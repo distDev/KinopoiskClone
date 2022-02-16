@@ -35,6 +35,10 @@ export interface ISliceOptions {
 
 export interface IBookmarks {
   id: number;
-  backdrop_path: string;
-  vote_average: number;
+  backdrop_path?: string;
+  vote_average?: number;
+}
+
+export interface IBook {
+  id: number
 }

@@ -1,5 +1,5 @@
 import {  makeAutoObservable } from 'mobx';
-import { IBookmarks } from '../interfaces';
+import { IBook, IBookmarks } from '../interfaces';
 
 class BookmarksUser {
   bookmarks: IBookmarks[] = [];
@@ -12,8 +12,15 @@ class BookmarksUser {
     this.bookmarks.push({
       id: payload.id,
       backdrop_path: payload.backdrop_path,
-      vote_average: payload.vote_average,
+      vote_average: payload.vote_average
     });
+    console.log(this.bookmarks);
+  }
+
+  RemoveBookmarks(payload: IBookmarks) {
+    this.bookmarks = this.bookmarks.filter((e) => e.id !== payload.id);
+
+    console.log(this.bookmarks)
   }
 }
 

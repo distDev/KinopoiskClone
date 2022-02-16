@@ -2,7 +2,7 @@
 interface Props {
   variant: 'orange' | 'normal';
   children: any;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: any;
 }
 
 export const Button = ({ variant, children, onClick}: Props) => {

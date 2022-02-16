@@ -14,18 +14,31 @@ export const DownAbout: FC<IFilm> = ({
   id,
   backdrop_path,
 }) => {
+  const [checked, setChecked] = useState(false);
+  // const getChecked = (id: any): any => {
+  //   myBookmarksUser.bookmarks.find((e) => e.id === id)
+  //     ? setChecked(true)
+  //     : setChecked(false);
+  // };
 
- 
- 
-  const bookmarks: IBookmarks[] = myBookmarksUser.bookmarks;
-  
-  const handleSaveBookmark = () => {
-    myBookmarksUser.AddBookmark({
-      id: id!,
-      backdrop_path: backdrop_path!,
-      vote_average: vote_average,
+  // Сохранение в закладки
+  const handleSaveBookmark = (id: any) => {
+    myBookmarksUser.bookmarks.find((e) => e.id === id)
+      ? handleRemoveBookmark(id)
+      : myBookmarksUser.AddBookmark({
+          id: id,
+          backdrop_path: backdrop_path,
+          vote_average: vote_average,
+        });
+    setChecked(true);
+  };
+
+  // удаление из закладок
+  const handleRemoveBookmark = (id: any) => {
+    myBookmarksUser.RemoveBookmarks({
+      id: id,
     });
-   
+    setChecked(false);
   };
 
   return (
@@ -45,10 +58,19 @@ export const DownAbout: FC<IFilm> = ({
           <FontAwesomeIcon icon={faPlay} />
           Смотреть трейлер
         </Button>
-        <Button variant='normal' onClick={handleSaveBookmark}>
-        
-            <FontAwesomeIcon icon={faBookmark}  />
-       
+        <Button
+          variant='normal'
+          onClick={
+            checked
+              ? () => handleRemoveBookmark(id)
+              : () => handleSaveBookmark(id)
+          }
+        >
+          {myBookmarksUser.bookmarks.find((e) => e.id === id) ? (
+            <FontAwesomeIcon icon={faBookmark} className='orange' />
+          ) : (
+            <FontAwesomeIcon icon={faBookmark} />
+          )}
         </Button>
       </div>
     </div>
