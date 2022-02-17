@@ -1,19 +1,19 @@
-import { async } from '@firebase/util';
-import { faBookmark, faPlay } from '@fortawesome/free-solid-svg-icons';
+
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import React, { FC, useEffect, useState } from 'react';
+import  { FC, useEffect, useState } from 'react';
 import { ICast, IFilm } from '../../interfaces';
-import { Button } from '../UI/Button';
 import { DownAbout } from './DownAbout';
 import { DownDetails } from './DownDetails';
 
 interface IDownFilm {
   film: IFilm[];
+  setVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 // Нижний блок с подобным описанием фильма, который рендерится при клике на фильм
-export const DownCardDescription: FC<IDownFilm> = ({ film }) => {
+export const DownCardDescription: FC<IDownFilm> = ({ film, setVisible }) => {
   const [activeTab, setActiveTab] = useState<'about' | 'detail'>('about');
   const [castData, setCastData] = useState<ICast>();
   const id = film.map((e) => e.id).join('');
@@ -71,6 +71,9 @@ export const DownCardDescription: FC<IDownFilm> = ({ film }) => {
             src={'https://image.tmdb.org/t/p/original' + e.backdrop_path}
             alt=''
           />
+          <button className='close-details' onClick={() => setVisible(false)}>
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
         </div>
       ))}
     </>

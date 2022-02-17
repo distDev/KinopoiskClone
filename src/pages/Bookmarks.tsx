@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react'
 import { Movies } from '../components/Movies';
 import ContainerCol from '../components/UI/ContainerCol';
@@ -8,7 +9,7 @@ interface Props {
     
 }
 
-export const Bookmarks = (props: Props) => {
+export const Bookmarks = observer( (props: Props) => {
    
    const bookmarks: IBookmarks[] = myBookmarksUser.bookmarks
 
@@ -22,7 +23,7 @@ export const Bookmarks = (props: Props) => {
 
    return (
      <ContainerCol>
-       <h1>Категория</h1>
+       <h1>Буду смотреть</h1>
        <div className='content-container'>
          {subarray.map((e: any) => (
            <Movies rowMovies={e} />
@@ -30,4 +31,4 @@ export const Bookmarks = (props: Props) => {
        </div>
      </ContainerCol>
    );
-}
+})

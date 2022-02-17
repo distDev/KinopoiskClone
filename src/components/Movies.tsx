@@ -68,7 +68,9 @@ export const Movies = ({
         <CardsRow films={rowMovies!} handleClick={handleOpenDescription} />
       )}
 
-      {visible ? <DownCardDescription film={film} /> : null}
+      {visible ? (
+        <DownCardDescription film={film} setVisible={setVisible} />
+      ) : null}
     </div>
   );
 };

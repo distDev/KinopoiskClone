@@ -1,12 +1,13 @@
 import { faBookmark, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { observer } from 'mobx-react-lite';
 import { FC, useState } from 'react';
 import { IBookmarks, IFilm } from '../../interfaces';
 import { myBookmarksUser } from '../../store/bookmarkStore';
 
 import { Button } from '../UI/Button';
 
-export const DownAbout: FC<IFilm> = ({
+export const DownAbout: FC<IFilm> = observer( ({
   title,
   vote_average,
   release_date,
@@ -30,7 +31,7 @@ export const DownAbout: FC<IFilm> = ({
           backdrop_path: backdrop_path,
           vote_average: vote_average,
         });
-    setChecked(true);
+    
   };
 
   // удаление из закладок
@@ -38,7 +39,7 @@ export const DownAbout: FC<IFilm> = ({
     myBookmarksUser.RemoveBookmarks({
       id: id,
     });
-    setChecked(false);
+   
   };
 
   return (
@@ -75,4 +76,4 @@ export const DownAbout: FC<IFilm> = ({
       </div>
     </div>
   );
-};
+})

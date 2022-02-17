@@ -22,7 +22,27 @@
     top: 0;
     right: 0;
   }
+  .close-details {
+    z-index: 40;
+    cursor: pointer;
+    background: none;
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    border: none;
+    color: rgba(255, 255, 255, 0.767);
+    height: 20px;
+    width: 20px;
 
+    &:hover {
+      color: rgba(255, 255, 255, 0.568);
+    }
+
+    svg {
+      height: auto;
+      width: 100%;
+    }
+  }
   .row-films__large_content {
     z-index: 22;
     position: relative;
@@ -83,5 +103,3 @@
     color: #909090;
   }
 }
-
-
