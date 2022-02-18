@@ -1,5 +1,7 @@
 
 import api from '../api/api';
+import { categoryCardsData } from '../utils/data';
+import { CategoryCardsSlider } from './CategoryCardsSlider';
 import { Movies } from './Movies';
 
 export const BrowseContent = () => {
@@ -11,21 +13,35 @@ export const BrowseContent = () => {
         fetchMovie={api.fetchTrending}
       />
       <Movies
-        title={'Экшен'}
+        title={'Комедии'}
         variant='slider'
-        fetchMovie={api.fetchDramaMovies}
-        genres={28}
+        fetchMovie={api.fetchComedyMovies}
+        genres={35}
       />
       <Movies
-        title={'Комедии'}
+        title={'Экшен'}
+        variant='slider'
+        fetchMovie={api.fetchActionMovies}
+        genres={35}
+      />
+
+      <Movies
+        title={'Мультфильмы'}
+        variant='slider'
+        fetchMovie={api.fetchAnimationMovies}
+        genres={35}
+      />
+      <CategoryCardsSlider caregories={categoryCardsData} />
+      <Movies
+        title={'Фентези'}
         variant='slider'
         fetchMovie={api.fetchFantasyMovies}
         genres={16}
       />
       <Movies
-        title={'Мультфильмы'}
+        title={'Романтические'}
         variant='slider'
-        fetchMovie={api.fetchAnimationMovies}
+        fetchMovie={api.fetchFamilyRomances}
         genres={35}
       />
     </div>

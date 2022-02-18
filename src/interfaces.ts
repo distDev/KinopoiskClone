@@ -38,6 +38,11 @@ export interface IBookmarks {
   backdrop_path?: string;
   vote_average?: number;
 }
+export interface ICategoryCards{
+  id: number;
+  backdrop_path: string;
+  title?: string;
+}
 
 export interface IBook {
   id: number

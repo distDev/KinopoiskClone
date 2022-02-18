@@ -34,3 +34,20 @@
       background: #666;
     }
   }
+  .row-films__slide_category {
+      border-radius: 10px;
+    height: 251px;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
