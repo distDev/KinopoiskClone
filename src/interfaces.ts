@@ -6,7 +6,7 @@ export interface IFilm {
   overview?: string;
   poster_path?: string;
   release_date?: string;
-  vote_average: number;
+  vote_average?: number;
   vote_count?: number;
 }
 
@@ -33,11 +33,7 @@ export interface ISliceOptions {
  variant?: 'slider' | 'row'
 }
 
-export interface IBookmarks {
-  id: number;
-  backdrop_path?: string;
-  vote_average?: number;
-}
+
 export interface ICategoryCards{
   id: number;
   backdrop_path: string;

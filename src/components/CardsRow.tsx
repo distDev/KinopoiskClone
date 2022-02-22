@@ -3,7 +3,7 @@ import { IFilm, ISliceOptions } from '../interfaces';
 import CardFilm from './CardFilm';
 
 interface ISliceRow {
-  handleClick?: any;
+  handleClick: (id: number) => void;
   films: IFilm[];
 }
 

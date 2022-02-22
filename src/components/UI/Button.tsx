@@ -1,11 +1,11 @@
+import { FC } from "react";
 
-interface Props {
+interface IButton {
   variant: 'orange' | 'normal';
-  children: any;
-  onClick?: any;
+  onClick?: () => void;
 }
 
-export const Button = ({ variant, children, onClick}: Props) => {
+export const Button: FC<IButton> = ({ variant, children, onClick }) => {
   return (
     <>
       <button

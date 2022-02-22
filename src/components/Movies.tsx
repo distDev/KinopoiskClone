@@ -18,8 +18,8 @@ export const Movies = ({
   genres,
   rowMovies,
 }: IMovies & ISliceOptions) => {
-  const [film, setFilm] = useState<any>([]);
-  const [movies, setMovies] = useState<any>([]);
+  const [film, setFilm] = useState<IFilm[] | null>([]);
+  const [movies, setMovies] = useState<IFilm[] | null>([]);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -34,20 +34,18 @@ export const Movies = ({
     }
   }, [fetchMovie, film]);
 
-
   // Поиск фильма для вывода в открывающемся блоке
-  const handleOpenDescription = (id: any) => {
-    
-    // Если есть fetchMovie, то происходит поиск нужного фильма, чтобы отобразить данные 
+  const handleOpenDescription = (id: number) => {
+    // Если есть fetchMovie, то происходит поиск нужного фильма, чтобы отобразить данные
     // в появляющимся блоке с описанием
     if (fetchMovie) {
-      let filmData = movies.filter((e: any) => e.id === id);
+      let filmData = movies!.filter((e) => e.id === id);
       setFilm(filmData);
     }
-   
+
     // Если нет fetchMovie, то поиск идет среди фильмов, которые были переданы в rowMovies
     else {
-      let filmData = rowMovies!.filter((e: any) => e.id === id);
+      let filmData = rowMovies!.filter((e) => e.id === id);
       setFilm(filmData);
     }
 
@@ -61,7 +59,7 @@ export const Movies = ({
         <CardsSlider
           genres={genres}
           handleClick={handleOpenDescription}
-          films={movies}
+          films={movies!}
           title={title}
         />
       ) : (
@@ -69,7 +67,7 @@ export const Movies = ({
       )}
 
       {visible ? (
-        <DownCardDescription film={film} setVisible={setVisible} />
+        <DownCardDescription film={film!} setVisible={setVisible} />
       ) : null}
     </div>
   );

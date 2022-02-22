@@ -5,10 +5,9 @@ import { IFilm, ISliceOptions } from '../interfaces';
 import { Link } from 'react-router-dom';
 
 interface ISliceRow {
-  handleClick: any;
+  handleClick: (id: number) => void;
   films: IFilm[];
   genres?: number;
-  
 }
 
 export const CardsSlider: FC<ISliceRow & ISliceOptions> = ({
@@ -30,9 +29,9 @@ export const CardsSlider: FC<ISliceRow & ISliceOptions> = ({
           <SwiperSlide
             key={e.id}
             className='row-films__slide'
-            onClick={() => handleClick(e.id)}
+            onClick={() => handleClick(e.id!)}
           >
-            <p className={e.vote_average <= 7 ? 'low-rating' : 'hight-rating'}>
+            <p className={e.vote_average! <= 7 ? 'low-rating' : 'hight-rating'}>
               {e.vote_average}
             </p>
             <img

@@ -2,7 +2,7 @@ import { faBookmark, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { observer } from 'mobx-react-lite';
 import { FC, useState } from 'react';
-import { IBookmarks, IFilm } from '../../interfaces';
+import { IFilm } from '../../interfaces';
 import { myBookmarksUser } from '../../store/bookmarkStore';
 
 import { Button } from '../UI/Button';
@@ -16,14 +16,10 @@ export const DownAbout: FC<IFilm> = observer( ({
   backdrop_path,
 }) => {
   const [checked, setChecked] = useState(false);
-  // const getChecked = (id: any): any => {
-  //   myBookmarksUser.bookmarks.find((e) => e.id === id)
-  //     ? setChecked(true)
-  //     : setChecked(false);
-  // };
+
 
   // Сохранение в закладки
-  const handleSaveBookmark = (id: any) => {
+  const handleSaveBookmark = (id: number): void => {
     myBookmarksUser.bookmarks.find((e) => e.id === id)
       ? handleRemoveBookmark(id)
       : myBookmarksUser.AddBookmark({
@@ -31,11 +27,10 @@ export const DownAbout: FC<IFilm> = observer( ({
           backdrop_path: backdrop_path,
           vote_average: vote_average,
         });
-    
   };
 
   // удаление из закладок
-  const handleRemoveBookmark = (id: any) => {
+  const handleRemoveBookmark = (id: number): void => {
     myBookmarksUser.RemoveBookmarks({
       id: id,
     });
@@ -63,8 +58,8 @@ export const DownAbout: FC<IFilm> = observer( ({
           variant='normal'
           onClick={
             checked
-              ? () => handleRemoveBookmark(id)
-              : () => handleSaveBookmark(id)
+              ? () => handleRemoveBookmark(id!)
+              : () => handleSaveBookmark(id!)
           }
         >
           {myBookmarksUser.bookmarks.find((e) => e.id === id) ? (

@@ -1,7 +1,6 @@
 import { autorun, makeAutoObservable } from 'mobx';
 import { IUser } from '../interfaces';
 
-
 class AuthUser {
   user: IUser = {
     uid: null,
@@ -22,17 +21,7 @@ class AuthUser {
       login: true,
     };
 
-    // const localUser = {
-    //   uid: payload.uid,
-    //   email: payload.email,
-    //   photoURL: payload.photoURL,
-    //   login: true,
-    // };
-
-    
-    localStorage.setItem('user', JSON.stringify(this.user));
   }
-
 
   LogOutUser() {
     this.user = {
@@ -41,8 +30,7 @@ class AuthUser {
       photoURL: null,
       login: false,
     };
-
   }
 }
 
-export const myAuthUser  = new AuthUser()
+export const myAuthUser = new AuthUser();

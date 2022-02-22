@@ -17,7 +17,7 @@ export const DownDetails: FC<IFilm & IDowsDetails> = ({
       <div className='row-films__detail_container'>
         <div className='row-films__about'>
           <h2>{title}</h2>
-          <span className={vote_average <= 7 ? 'low-rating' : 'hight-rating'}>
+          <span className={vote_average! <= 7 ? 'low-rating' : 'hight-rating'}>
             {vote_average}
           </span>
           <p className='row-films__vote_count'>{vote_count + ' Оценок'}</p>

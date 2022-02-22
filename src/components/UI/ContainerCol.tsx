@@ -1,10 +1,8 @@
+import { FC } from "react";
 
 
-interface IContainerCol {
-  children: any;
-}
 
-const ContainerCol = ({ children }: IContainerCol) => {
+const ContainerCol:FC = ({ children }) => {
   return <div className='container'>
       {children}
   </div>;

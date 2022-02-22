@@ -1,26 +1,23 @@
-import {  makeAutoObservable } from 'mobx';
-import { IBook, IBookmarks } from '../interfaces';
+import { makeAutoObservable } from 'mobx';
+import { IBook, IFilm } from '../interfaces';
 
 class BookmarksUser {
-  bookmarks: IBookmarks[] = [];
+  bookmarks: IFilm[] = [];
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  AddBookmark(payload: IBookmarks) {
+  AddBookmark(payload: IFilm) {
     this.bookmarks.push({
       id: payload.id,
       backdrop_path: payload.backdrop_path,
-      vote_average: payload.vote_average
+      vote_average: payload.vote_average,
     });
-    console.log(this.bookmarks);
   }
 
-  RemoveBookmarks(payload: IBookmarks) {
+  RemoveBookmarks(payload: IFilm) {
     this.bookmarks = this.bookmarks.filter((e) => e.id !== payload.id);
-
-    console.log(this.bookmarks)
   }
 }
 
